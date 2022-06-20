@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Coin from './Coin';
 
 class CoinFlipper extends Component {
@@ -16,12 +16,12 @@ class CoinFlipper extends Component {
     }
 
     flipCoin(){
-        let newSide = this.props.coinSides[Math.floor(math.random() * this.props.coinSides.length)];
+        let newSide = this.props.coinSides[Math.floor(Math.random() * this.props.coinSides.length)];
         this.setState({...this.state, coinSide: newSide});
         if(newSide === 'heads'){
-            this.setState({headsTimes: headsTimes + 1})
+            this.setState({headsTimes: this.state.headsTimes + 1})
         } else {
-            this.setState({tailsTimes: tailsTimes + 1})
+            this.setState({tailsTimes: this.state.tailsTimes + 1})
         }
     }
     handleClick(){
@@ -33,7 +33,7 @@ class CoinFlipper extends Component {
             <Coin currSide={this.state.coinSide}/>
             <div>Tails: {this.state.tailsTimes}</div>
             <div>Heads: {this.state.headsTimes}</div>
-            <button onCLick={handleClick}>Flip Me!</button>
+            <button onClick={this.handleClick}>Flip Me!</button>
         </div>)
     }
 }
