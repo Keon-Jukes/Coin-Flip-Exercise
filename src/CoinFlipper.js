@@ -8,7 +8,7 @@ class CoinFlipper extends Component {
     constructor(props){
         super(props)
         this.state = {
-            coinSide: "",
+            coinSide: null,
             headsTimes: 0,
             tailsTimes: 0,
             count: 0
